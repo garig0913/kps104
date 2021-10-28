@@ -4,8 +4,8 @@ class Authentication {
     async login(req, res) {
         const { email, password } = req.body;
         try {
-            const user = await User.findOne({email: email})
-            if(user.password === password){
+            const user = await User.findOne({ email: email })
+            if (user.password === password) {
                 res.json({
                     user: user
                 })
@@ -14,7 +14,7 @@ class Authentication {
                     message: 'Имэйл эсвэл нууц үг буруу байна..'
                 })
             }
-        } catch (err){
+        } catch (err) {
             res.json({
                 message: err.message
             })
